@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+#SBATCH --job-name=pytorch-cpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=24
+#SBATCH --time=3:30:00
+#SBATCH --output=pytorch-cpu.out
+
+. /share/apps/compute/si2019/miniconda3/etc/profile.d/conda.sh
+conda run -n pytorch-env python Imagenet_train.py
+
+
