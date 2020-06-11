@@ -23,19 +23,19 @@ if torch.cuda.is_available():
 # In[4]:
 
 
-# n_gpus
+n_gpus
 
 
 # In[5]:
 
 
-# get_ipython().system('rm tiny-imagenet-200/*.txt')
+get_ipython().system('rm tiny-imagenet-200/*.txt')
 
 
 # In[6]:
 
 
-# get_ipython().system('rm tiny-imagenet-200/val/*.txt')
+get_ipython().system('rm tiny-imagenet-200/val/*.txt')
 
 
 # In[7]:
@@ -177,8 +177,7 @@ print('Finished Training after %.3f hours'%((end-start) / 60 / 60 ))
 
 def fetch_accuracy(loader):
     with torch.no_grad():
-            if gpus:
-                net.to('cuda:0')
+            net.to('cuda:0')
             net.eval()
             count = 0
             for inputs in loader:
